@@ -1,0 +1,36 @@
+<h1>Hello</h1>
+<form [formGroup]="studentform" (ngSubmit)="onSubmit()">
+      <label for="Rollno">Rollno</label>
+      <input type="number" name="rollno" formControlName="rollno">
+      <span style="color: red;" *ngIf="rollno && rollno.invalid && rollno.touched">Rollno is required</span>
+
+      <br>
+      <label for="Name">Name</label>
+      <input type="text" name="name" formControlName="name">
+      <span style="color: red;" *ngIf="name && name.invalid && name.touched">Name is required</span>
+
+      <br>
+      <label for="Email">Email</label>
+      <input type="email" name="email" formControlName="email">
+      <span style="color: red;" *ngIf="email && email.invalid && email.touched">Email is required</span>
+
+      <br>
+
+      <button  type="submit">Submit</button>
+</form>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Rollno</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data1 of empdata">
+      <td>{{data1.rollno}}</td>
+      <td>{{data1.name}}</td>
+      <td>{{data1.email}}</td>
+    </tr>
+  </tbody>
+</table>
